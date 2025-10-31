@@ -1,43 +1,160 @@
-.whatsapp-float{
-	position:fixed;
-	right:16px;
-	bottom:16px;
-	z-index:9999;
-	width:56px;
-	height:56px;
-	border-radius:50%;
-	background:#00DB40;
-	display:flex;
-	align-items:center;
-	justify-content:center;
-	color:white;
-	box-shadow:0 6px 16px rgba(0,0,0,.25);
-	transition:transform .2s ease
+/* Styles extracted from shopping-cart.html */
+:root {
+  --primary: #f47b25;
+  --background-light: #f8f7f5;
+  --background-dark: #221710;
+  --text-dark: #181411;
+  --text-light: #ffffff;
+  --border-light: #f5f2f0;
+  --border-dark: #3a2d23;
+  --secondary-light: #8a7260;
+  --secondary-dark: #a18a79;
 }
 
-.whatsapp-float:hover{
-	transform:scale(1.06)
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
-.whatsapp-float svg{
-	width:28px;
-	height:28px;
-	fill:currentColor
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  min-height: 100vh;
 }
 
-@media (max-width: 576px){
-	.whatsapp-float{
-		right:12px;
-		bottom:12px;
-		width:52px;
-		height:52px
-	}
+/* Header */
+.header-border {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--primary);
+}
+
+.nav-link {
+  color: var(--text-dark);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-link:hover {
+  color: var(--primary);
+}
+.nav-link.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Buscar */
+.search-wrapper {
+  background-color: var(--border-light);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  height: 40px;
+}
+
+.search-input {
+  background-color: transparent;
+  border: none;
+  color: #111827;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.search-input::placeholder {
+  color: #6b7280;
+}
+.search-icon {
+  color: #6b7280;
+}
+
+/* Cart Button */
+.btn-cart {
+  background-color: rgba(244, 123, 37, 0.2);
+  color: var(--primary);
+  border: none;
+  border-radius: 0.75rem;
+  height: 40px;
+  padding: 0 1rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--primary);
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Avatar */
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Botón WhatsApp flotante */
+.whatsapp-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #00db40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.06);
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+@media (max-width: 576px) {
+  .whatsapp-float {
+    right: 12px;
+    bottom: 12px;
+    width: 52px;
+    height: 52px;
+  }
 }
 
 /* Alinear al borde del container en tamaños grandes (Bootstrap 5) */
-@media (min-width: 1200px){
-	.whatsapp-float{ right: calc((100vw - 1140px)/2 + 16px); }
+@media (min-width: 1200px) {
+  .whatsapp-float {
+    right: calc((100vw - 1140px) / 2 + 16px);
+  }
 }
-@media (min-width: 1400px){
-	.whatsapp-float{ right: calc((100vw - 1320px)/2 + 16px); }
+@media (min-width: 1400px) {
+  .whatsapp-float {
+    right: calc((100vw - 1320px) / 2 + 16px);
+  }
 }

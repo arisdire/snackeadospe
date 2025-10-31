@@ -1,58 +1,136 @@
-/* Styles extracted from shopping-cart.html */
-:root {
-	--primary: #f47b25;
-	--background-light: #f8f7f5;
-	--background-dark: #221710;
+/* Producto Cards */
+.product-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.producto-imagen {
+  width: 96px;
+  height: 96px;
+  border-radius: 0.5rem;
+  background-size: cover;
+  background-position: center;
+}
+.producto-titulo {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111827;
+  margin: 0;
+}
+.producto-precio {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
 }
 
-body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--background-light); min-height: 100vh; }
-
-/* Header */
-.header-border { border-bottom: 1px solid #e5e7eb; }
-.logo-icon { width: 24px; height: 24px; color: var(--primary); }
-
-/* Buscar */
-.search-wrapper { background-color: #f3f4f6; border-radius: 0.75rem; overflow: hidden; height: 40px; }
-.search-input { background-color: transparent; border: none; color: #111827; }
-.search-input:focus { outline: none; box-shadow: none; }
-.search-input::placeholder { color: #6b7280; }
-.search-icon { color: #6b7280; }
-
-/* Cart Button */
-.btn-cart { background-color: rgba(244, 123, 37, 0.2); color: var(--primary); border: none; border-radius: 0.75rem; height: 40px; padding: 0 1rem; font-weight: 700; position: relative; }
-.cart-badge { position: absolute; top: -4px; right: -4px; background-color: var(--primary); color: white; font-size: 0.75rem; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
-
-/* Avatar */
-.user-avatar { width: 40px; height: 40px; border-radius: 50%; background-size: cover; background-position: center; }
-
-/* Producto Cards */
-.product-card { background-color: white; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
-.producto-imagen { width: 96px; height: 96px; border-radius: 0.5rem; background-size: cover; background-position: center; }
-.producto-titulo { font-size: 1.125rem; font-weight: 500; color: #111827; margin: 0; }
-.producto-precio { font-size: 0.875rem; color: #6b7280; margin: 0; }
-
 /* botones de cantidad */
-.cantidad-btn { width: 32px; height: 32px; border-radius: 50%; background-color: #f3f4f6; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; font-weight: 500; }
-.cantidad-input { width: 32px; padding: 0; text-align: center; background-color: transparent; border: none; font-weight: 500; }
-.cantidad-input::-webkit-inner-spin-button, .cantidad-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.cantidad-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 500;
+}
+.cantidad-input {
+  width: 32px;
+  padding: 0;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+}
+.cantidad-input::-webkit-inner-spin-button,
+.cantidad-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 /* Botón de borrado */
-.btn-delete { color: #ef4444; background: none; border: none; cursor: pointer; }
+.btn-delete {
+  color: #ef4444;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
 /* Resumen del pedido */
-.resumen-card { background-color: white; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
-.resumen-title { font-size: 1.25rem; font-weight: 700; color: #111827; }
-.resumen-divider { border-top: 1px solid #e5e7eb; }
-.resumen-label { font-size: 0.875rem; color: #6b7280; }
-.resumen-value { font-size: 0.875rem; font-weight: 500; color: #111827; }
-.total-label { font-size: 1.125rem; font-weight: 700; color: #111827; }
+.resumen-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.resumen-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+.resumen-divider {
+  border-top: 1px solid #e5e7eb;
+}
+.resumen-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+.resumen-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+.total-label {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
 
 /* Botones */
-.btn-continue { background-color: transparent; color: var(--primary); border: 2px solid var(--primary); border-radius: 0.75rem; height: 48px; padding: 0 1.5rem; font-weight: 700; }
-.btn-continue:hover { background-color: rgba(244, 123, 37, 0.1); color: var(--primary); border-color: var(--primary); }
-.btn-checkout { background-color: var(--primary); color: white; border: none; border-radius: 0.75rem; height: 56px; font-weight: 700; }
-.btn-checkout:hover { color: white; background-color: rgba(244, 123, 37, 0.9); }
-.btn-checkout:active { color: white!important; background-color: rgba(244, 123, 37, 0.9)!important; }
-.btn-apply { background-color: #e5e7eb; color: #111827; border: none; border-radius: 0.5rem; height: 48px; padding: 0 1rem; font-weight: 700; }
-.btn-apply:hover { background-color: #e5e7eb; }
-.btn-apply:active { color: #111827!important; background-color: #e5e7eb!important; }
+.btn-continue {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 0.75rem;
+  height: 48px;
+  padding: 0 1.5rem;
+  font-weight: 700;
+}
+.btn-continue:hover {
+  background-color: rgba(244, 123, 37, 0.1);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.btn-checkout {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  height: 56px;
+  font-weight: 700;
+}
+.btn-checkout:hover {
+  color: white;
+  background-color: rgba(244, 123, 37, 0.9);
+}
+.btn-checkout:active {
+  color: white !important;
+  background-color: rgba(244, 123, 37, 0.9) !important;
+}
+.btn-apply {
+  background-color: #e5e7eb;
+  color: #111827;
+  border: none;
+  border-radius: 0.5rem;
+  height: 48px;
+  padding: 0 1rem;
+  font-weight: 700;
+}
+.btn-apply:hover {
+  background-color: #e5e7eb;
+}
+.btn-apply:active {
+  color: #111827 !important;
+  background-color: #e5e7eb !important;
+}

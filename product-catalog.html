@@ -13,44 +13,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/product-catalog.css">
+
 </head>
 
-<body>
+<body class="container-lg py-3>
     <!-- Header -->
     <header class="header-border">
-        <div class="container-fluid px-3 px-sm-4 px-lg-5 py-3">
+        <div class="container px-3 px-md-4 px-lg-5 py-3">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center gap-4">
-                    <div class="d-flex align-items-center gap-2" style="color: var(--primary);">
-                        <h2 class="h5 mb-0 fw-bold">Plataforma de Bebidas</h2>
-                    </div>
-                    <nav class="d-none d-md-flex align-items-center gap-4">
-                        <a class="nav-link" href="index.html">Inicio</a>
+                <div class="d-flex align-items-center gap-3">
+                    <a class="text-decoration-none d-flex align-items-center gap-2" href="index.html">
+                        <img src="img/logo-principal.png" alt="Logo SNACKEADOS" style="width: 40px; height: 40px;" class="rounded">
+                        <strong class="text-black h5 mb-0">SNACKEADOS PERÚ</strong>
+                    </a>
+                    <nav class="d-none d-md-flex align-items-center gap-3">
                         <a class="nav-link active" href="product-catalog.html">Catálogo</a>
                         <a class="nav-link" href="nosotros.html">Nosotros</a>
                         <a class="nav-link" href="contacto.html">Contacto</a>
                     </nav>
                 </div>
                 <div class="d-flex align-items-center gap-3">
-                    <a href="shopping-cart.html">
-                        <button class="icon-button d-flex align-items-center justify-content-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                            </svg>
-                        </button>
-                    </a>
-                    <a href="login.html">
-                        <button class="icon-button d-flex align-items-center justify-content-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                            </svg>
-                        </button>
-                    </a>
-                    <button class="icon-button d-md-none d-flex align-items-center justify-content-center">
-                        <span class="material-symbols-outlined fs-5">menu</span>
-                    </button>
+                    <div class="search-wrapper d-none d-md-flex align-items-stretch" style="min-width: 160px; max-width: 256px;">
+                        <div class="d-flex align-items-center justify-content-center px-3 search-icon">
+                            <span class="material-symbols-outlined">search</span>
+                        </div>
+                        <input type="text" class="form-control search-input px-2" placeholder="Buscar">
+                    </div>
+                    <div>
+                        <a class="text-decoration-none" href="shopping-cart.html">
+                            <button class="btn-cart d-flex align-items-center gap-2">
+                                <span class="material-symbols-outlined">shopping_cart</span>
+                                <span>Carrito</span>
+                                <div class="cart-badge">2</div>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="user-avatar" style='background-image: url("img/user.png");'>
+                    </div>
                 </div>
             </div>
         </div>
