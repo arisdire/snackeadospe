@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNACKEADOS Perú- Tu tienda de bebidas y snacks</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
-  </head>
+</head>
 
 <body>
     <div class="container-lg py-3">
@@ -29,7 +30,8 @@
                     </a>
 
                     <!-- Toggle button para m�vil -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarContenido">
                         <span class="navbar-toggler-icon">_</span>
                     </button>
 
@@ -60,32 +62,28 @@
                         </ul>
 
                         <hr class="d-md-none">
-
-                        <!-- Barra de búsqueda -->
-                        <form class="d-flex me-3 my-2 my-lg-0" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Busca tu producto favorito" aria-label="Buscar">
-                            <button class="btn btn-outline-danger btn-buscar" type="submit">
-                                <i class="bi bi-search"></i>
-                            </button>
-                        </form>
-
-                        <!-- Iconos de usuario y carrito -->
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="#" data-bs-toggle="dropdown">
-                                    <i class="bi bi-person-circle icono-usuario"></i>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="search-wrapper d-none d-md-flex align-items-stretch"
+                                style="min-width: 160px; max-width: 256px;">
+                                <div class="d-flex align-items-center justify-content-center px-3 search-icon">
+                                    <span class="material-symbols-outlined">search</span>
+                                </div>
+                                <input type="text" class="form-control search-input px-2" placeholder="Buscar">
+                            </div>
+                            <div>
+                                <a class="text-decoration-none" href="shopping-cart.html">
+                                    <button class="btn-cart d-flex align-items-center gap-2">
+                                        <span class="material-symbols-outlined">shopping_cart</span>
+                                        <span>Carrito</span>
+                                        <div class="cart-badge">2</div>
+                                    </button>
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" href="login.html">Inicia sesión</a></li>
-                                    <li><a class="dropdown-item" href="login.html">Regístrate aquí</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="shopping-cart.html">
-                                    <i class="bi bi-cart4 icono-carrito"></i>
-                                </a>
-                            </li>
-                        </ul>
+                            </div>
+                            <a href="login.html" class="text-decoration-none">
+                                <div class="user-avatar" style='background-image: url("img/user.png");'>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -106,7 +104,8 @@
             <div class="section-container p-0 carousel-custom">
                 <div id="carouselPrincipal" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselPrincipal" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#carouselPrincipal" data-bs-slide-to="0"
+                            class="active"></button>
                         <button type="button" data-bs-target="#carouselPrincipal" data-bs-slide-to="1"></button>
                         <button type="button" data-bs-target="#carouselPrincipal" data-bs-slide-to="2"></button>
                         <button type="button" data-bs-target="#carouselPrincipal" data-bs-slide-to="3"></button>
@@ -125,11 +124,13 @@
                             <img src="img/snack-4.jpg" class="d-block w-100" alt="Banner 4">
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPrincipal" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPrincipal"
+                        data-bs-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                         <span class="visually-hidden">Anterior</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselPrincipal" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselPrincipal"
+                        data-bs-slide="next">
                         <span class="carousel-control-next-icon"></span>
                         <span class="visually-hidden">Siguiente</span>
                     </button>
@@ -268,11 +269,17 @@
                     <div class="col-12 col-md-3">
                         <h5 class="footer-title">Síguenos</h5>
                         <div class="d-flex gap-3 flex-wrap">
-                            <a href="https://www.facebook.com/snackeadospe" target="_blank" rel="noopener noreferrer" class="icono-social text-light"><i class="bi bi-facebook"></i></a>
-                            <a href="https://www.messenger.com/t/snackeadospe" target="_blank" rel="noopener noreferrer" class="icono-social text-light"><i class="bi bi-messenger"></i></a>
-                            <a href="https://www.tiktok.com/@snackeadospe" target="_blank" rel="noopener noreferrer" class="icono-social text-light"><i class="bi bi-tiktok"></i></a>
-                            <a href="https://www.instagram.com/snackeadospe/" target="_blank" rel="noopener noreferrer" class="icono-social text-light"><i class="bi bi-instagram"></i></a>
-                            <a href="https://api.whatsapp.com/delivery?phone=51987654321&text=Hola SNACKEADOS PERU, quiero saber más sobre sus productos" target="_blank" rel="noopener noreferrer" class="icono-social text-light"><i class="bi bi-whatsapp"></i></a>
+                            <a href="https://www.facebook.com/snackeadospe" target="_blank" rel="noopener noreferrer"
+                                class="icono-social text-light"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.messenger.com/t/snackeadospe" target="_blank" rel="noopener noreferrer"
+                                class="icono-social text-light"><i class="bi bi-messenger"></i></a>
+                            <a href="https://www.tiktok.com/@snackeadospe" target="_blank" rel="noopener noreferrer"
+                                class="icono-social text-light"><i class="bi bi-tiktok"></i></a>
+                            <a href="https://www.instagram.com/snackeadospe/" target="_blank" rel="noopener noreferrer"
+                                class="icono-social text-light"><i class="bi bi-instagram"></i></a>
+                            <a href="https://api.whatsapp.com/delivery?phone=51987654321&text=Hola SNACKEADOS PERU, quiero saber más sobre sus productos"
+                                target="_blank" rel="noopener noreferrer" class="icono-social text-light"><i
+                                    class="bi bi-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
@@ -283,15 +290,22 @@
             </div>
         </footer>
     </div>
-    
-    <a href="https://wa.me/51987654321" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+
+    <a href="https://wa.me/51987654321" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="WhatsApp">
         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.255 3.713a8 8 0 0 0-5.684-2.36c-4.433 0-8.043 3.603-8.043 8.036 0 1.394.364 2.771 1.045 3.974l-1.164 4.26 4.354-1.14a8.06 8.06 0 0 0 3.8.957c4.434 0 8.044-3.61 8.044-8.043 0-2.145-.84-4.172-2.352-5.692zM4.283 13.11c-.76-.863-1.18-2.312-1.18-3.72a6.467 6.467 0 0 1 6.46-6.46 6.42 6.42 0 0 1 4.568 1.891 6.42 6.42 0 0 1 1.892 4.568 6.467 6.467 0 0 1-6.46 6.46c-1.258 0-2.596-.404-3.562-1.06l-2.343.609z" fill="#fff" style="fill:#fff;fill-opacity:1"></path><path d="M11.748 10.434c.182.064 1.148.539 1.346.641.198.103.333.15.38.23.048.08.048.475-.119.934s-.95.879-1.33.934c-.34.048-.768.072-1.242-.079a12 12 0 0 1-1.125-.412c-1.979-.854-3.27-2.842-3.364-2.976-.103-.143-.8-1.069-.8-2.035s.507-1.448.689-1.646a.72.72 0 0 1 .522-.246h.38c.12 0 .285-.047.444.34.166.396.562 1.362.61 1.465a.38.38 0 0 1 .015.349c-.063.134-.095.213-.198.324a8 8 0 0 1-.293.348c-.095.095-.198.206-.087.404.119.198.507.84 1.093 1.362.752.673 1.385.879 1.583.974s.309.079.428-.048c.118-.135.49-.578.625-.776s.261-.166.443-.095z" fill="#fff" style="fill:#fff;fill-opacity:1"></path></svg>
+            <path
+                d="M15.255 3.713a8 8 0 0 0-5.684-2.36c-4.433 0-8.043 3.603-8.043 8.036 0 1.394.364 2.771 1.045 3.974l-1.164 4.26 4.354-1.14a8.06 8.06 0 0 0 3.8.957c4.434 0 8.044-3.61 8.044-8.043 0-2.145-.84-4.172-2.352-5.692zM4.283 13.11c-.76-.863-1.18-2.312-1.18-3.72a6.467 6.467 0 0 1 6.46-6.46 6.42 6.42 0 0 1 4.568 1.891 6.42 6.42 0 0 1 1.892 4.568 6.467 6.467 0 0 1-6.46 6.46c-1.258 0-2.596-.404-3.562-1.06l-2.343.609z"
+                fill="#fff" style="fill:#fff;fill-opacity:1"></path>
+            <path
+                d="M11.748 10.434c.182.064 1.148.539 1.346.641.198.103.333.15.38.23.048.08.048.475-.119.934s-.95.879-1.33.934c-.34.048-.768.072-1.242-.079a12 12 0 0 1-1.125-.412c-1.979-.854-3.27-2.842-3.364-2.976-.103-.143-.8-1.069-.8-2.035s.507-1.448.689-1.646a.72.72 0 0 1 .522-.246h.38c.12 0 .285-.047.444.34.166.396.562 1.362.61 1.465a.38.38 0 0 1 .015.349c-.063.134-.095.213-.198.324a8 8 0 0 1-.293.348c-.095.095-.198.206-.087.404.119.198.507.84 1.093 1.362.752.673 1.385.879 1.583.974s.309.079.428-.048c.118-.135.49-.578.625-.776s.261-.166.443-.095z"
+                fill="#fff" style="fill:#fff;fill-opacity:1"></path>
+        </svg>
     </a>
-    
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 </body>
 
 </html>
