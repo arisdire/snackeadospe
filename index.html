@@ -254,6 +254,46 @@
             color: var(--primary);
             transform: scale(1.2);
         }
+        .whatsapp-float{
+            position:fixed;
+            right:16px;
+            bottom:16px;
+            z-index:9999;
+            width:56px;
+            height:56px;
+            border-radius:50%;
+            background:#00DB40;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            box-shadow:0 6px 16px rgba(0,0,0,.25);
+            transition:transform .2s ease
+        }
+
+        .whatsapp-float:hover{
+            transform:scale(1.06)
+        }
+
+        .whatsapp-float svg{
+            width:28px;
+            height:28px;
+            fill:currentColor
+        }
+
+        @media (max-width: 576px){
+            .whatsapp-float{
+                right:12px;
+                bottom:12px;
+                width:52px;
+                height:52px}}
+
+        @media (min-width: 1200px){
+            .whatsapp-float{ right: calc((100vw - 1140px)/2 + 16px); }
+        }
+        @media (min-width: 1400px){
+            .whatsapp-float{ right: calc((100vw - 1320px)/2 + 16px); }
+        }
     </style>
 </head>
 
@@ -523,18 +563,15 @@
             </div>
         </footer>
     </div>
-
+    
+    <a href="https://wa.me/51987654321" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.255 3.713a8 8 0 0 0-5.684-2.36c-4.433 0-8.043 3.603-8.043 8.036 0 1.394.364 2.771 1.045 3.974l-1.164 4.26 4.354-1.14a8.06 8.06 0 0 0 3.8.957c4.434 0 8.044-3.61 8.044-8.043 0-2.145-.84-4.172-2.352-5.692zM4.283 13.11c-.76-.863-1.18-2.312-1.18-3.72a6.467 6.467 0 0 1 6.46-6.46 6.42 6.42 0 0 1 4.568 1.891 6.42 6.42 0 0 1 1.892 4.568 6.467 6.467 0 0 1-6.46 6.46c-1.258 0-2.596-.404-3.562-1.06l-2.343.609z" fill="#fff" style="fill:#fff;fill-opacity:1"></path><path d="M11.748 10.434c.182.064 1.148.539 1.346.641.198.103.333.15.38.23.048.08.048.475-.119.934s-.95.879-1.33.934c-.34.048-.768.072-1.242-.079a12 12 0 0 1-1.125-.412c-1.979-.854-3.27-2.842-3.364-2.976-.103-.143-.8-1.069-.8-2.035s.507-1.448.689-1.646a.72.72 0 0 1 .522-.246h.38c.12 0 .285-.047.444.34.166.396.562 1.362.61 1.465a.38.38 0 0 1 .015.349c-.063.134-.095.213-.198.324a8 8 0 0 1-.293.348c-.095.095-.198.206-.087.404.119.198.507.84 1.093 1.362.752.673 1.385.879 1.583.974s.309.079.428-.048c.118-.135.49-.578.625-.776s.261-.166.443-.095z" fill="#fff" style="fill:#fff;fill-opacity:1"></path></svg>
+    </a>
+    
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <a href="https://wa.me/51987654321" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.14c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.18.2-.35.22-.65.07-.3-.15-1.24-.46-2.36-1.47-.87-.78-1.46-1.75-1.63-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5-.17 0-.37-.02-.57-.02-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.48 0 1.45 1.08 2.85 1.24 3.05.15.2 2.12 3.25 5.13 4.55.72.31 1.29.49 1.73.62.73.23 1.39.2 1.92.12.59-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM16.03 28c-2.07 0-4.02-.55-5.72-1.51L5 28l1.55-5.16A11.91 11.91 0 0 1 4 16.03C4 9.38 9.38 4 16.03 4 22.68 4 28.06 9.38 28.06 16.03 28.06 22.68 22.68 28 16.03 28zm0-21.8c-5.46 0-9.9 4.44-9.9 9.9 0 2.06.63 3.97 1.72 5.55l-1.13 3.72 3.84-1.1a9.88 9.88 0 0 0 5.47 1.64c5.46 0 9.9-4.44 9.9-9.9 0-5.46-4.44-9.9-9.9-9.9z"/></svg>
-    </a>
-    <style>
-        .whatsapp-float{position:fixed;right:16px;bottom:16px;z-index:9999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .2s ease}
-        .whatsapp-float:hover{transform:scale(1.06)}
-        .whatsapp-float svg{width:28px;height:28px;fill:currentColor}
-        @media (max-width: 576px){.whatsapp-float{right:12px;bottom:12px;width:52px;height:52px}}
-    </style>
+    
 </body>
 
 </html>
