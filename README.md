@@ -1,20 +1,20 @@
-# SNACKEADOS Per�
+# SNACKEADOS Perú
 
 Tu tienda online de bebidas y snacks.
 
-## Descripci�n
+## Descripción
 
-SNACKEADOS Per� es una tienda online que ofrece una amplia variedad de bebidas y snacks para hacer tus reuniones m�s disfrutables.
+SNACKEADOS Perú es una tienda online que ofrece una amplia variedad de bebidas y snacks para hacer tus reuniones más disfrutables.
 
-## Caracter�sticas
+## Características
 
-- Cat�logo de productos
-- Sistema de categor�as
+- Catálogo de productos
+- Sistema de categorías
 - Carrito de compras
-- P�ginas de producto
+- Páginas de producto
 - Checkout y pago
 
-## Tecnolog�as Utilizadas
+## Tecnologías Utilizadas
 
 - HTML5
 - Bootstrap 5.3.2
@@ -22,31 +22,31 @@ SNACKEADOS Per� es una tienda online que ofrece una amplia variedad de bebidas y
 
 ## Estructura del Proyecto
 
-```
+```ps
 snackeados/
-??? index.html              # P�gina principal
-??? login.html              # P�gina de inicio de sesi�n
-??? product-catalog.html    # Cat�logo de productos
-??? product-details.html    # Detalles de producto
-??? shopping-cart.html      # Carrito de compras
-??? checkout-payment.html   # Checkout y pago
-??? contacto.html           # P�gina de contacto
-??? nosotros.html           # P�gina sobre nosotros
-??? img/                    # Im�genes del sitio
-??? README.md               # Este archivo
+├── index.html              # Página principal
+├── login.html              # Página de inicio de sesión
+├── product-catalog.html    # Catálogo de productos
+├── product-details.html    # Detalles de producto
+├── shopping-cart.html      # Carrito de compras
+├── checkout-payment.html   # Checkout y pago
+├── contacto.html           # Página de contacto
+├── nosotros.html           # Página sobre nosotros
+├── img/                    # Im�genes del sitio
+└── README.md               # Este archivo
 ```
 
-## Instalaci�n
+## Instalación
 
-Este proyecto es un sitio web est�tico, simplemente abre `index.html` en tu navegador.
+Este proyecto es un sitio web estático, simplemente abre `index.html` en tu navegador.
 
 ## Uso
 
 1. Abre `index.html` en tu navegador web
 2. Navega por las diferentes secciones del sitio
-3. Explora los productos y categor�as disponibles
+3. Explora los productos y categorías disponibles
 
 ## Licencia
 
-Todos los derechos reservados - SNACKEADOS Per� � 2025
+Todos los derechos reservados - SNACKEADOS Perú © 2025
 
