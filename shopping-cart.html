@@ -13,290 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     
-    <style>
-        :root {
-            --primary: #f47b25;
-            --background-light: #f8f7f5;
-            --background-dark: #221710;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--background-light);
-            min-height: 100vh;
-        }
-
-        /* Header */
-        .header-border {
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .logo-icon {
-            width: 24px;
-            height: 24px;
-            color: var(--primary);
-        }
-
-        /* Buscar */
-        .search-wrapper {
-            background-color: #f3f4f6;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            height: 40px;
-        }
-
-        .search-input {
-            background-color: transparent;
-            border: none;
-            color: #111827;
-        }
-
-        .search-input:focus {
-            outline: none;
-            box-shadow: none;
-        }
-
-        .search-input::placeholder {
-            color: #6b7280;
-        }
-
-        .search-icon {
-            color: #6b7280;
-        }
-
-        /* Cart Button */
-        .btn-cart {
-            background-color: rgba(244, 123, 37, 0.2);
-            color: var(--primary);
-            border: none;
-            border-radius: 0.75rem;
-            height: 40px;
-            padding: 0 1rem;
-            font-weight: 700;
-            position: relative;
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -4px;
-            right: -4px;
-            background-color: var(--primary);
-            color: white;
-            font-size: 0.75rem;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Avatar */
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Producto Cards */
-        .product-card {
-            background-color: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .producto-imagen {
-            width: 96px;
-            height: 96px;
-            border-radius: 0.5rem;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .producto-titulo {
-            font-size: 1.125rem;
-            font-weight: 500;
-            color: #111827;
-            margin: 0;
-        }
-
-        .producto-precio {
-            font-size: 0.875rem;
-            color: #6b7280;
-            margin: 0;
-        }
-
-        /* botones de cantidad */
-        .cantidad-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: #f3f4f6;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-weight: 500;
-        }
-
-        .cantidad-input {
-            width: 32px;
-            padding: 0;
-            text-align: center;
-            background-color: transparent;
-            border: none;
-            font-weight: 500;
-        }
-
-        .cantidad-input::-webkit-inner-spin-button,
-        .cantidad-input::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        /* Botón de borrado */
-        .btn-delete {
-            color: #ef4444;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Resumen del pedido */
-        .resumen-card {
-            background-color: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .resumen-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #111827;
-        }
-
-        .resumen-divider {
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .resumen-label {
-            font-size: 0.875rem;
-            color: #6b7280;
-        }
-
-        .resumen-value {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #111827;
-        }
-
-        .total-label {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #111827;
-        }
-
-        /* Botones */
-        .btn-continue {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            border-radius: 0.75rem;
-            height: 48px;
-            padding: 0 1.5rem;
-            font-weight: 700;
-        }
-
-        .btn-continue:hover {
-            background-color: rgba(244, 123, 37, 0.1);
-            color: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .btn-checkout {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 0.75rem;
-            height: 56px;
-            font-weight: 700;
-        }
-
-        .btn-checkout:hover {
-            color: white;
-            background-color: rgba(244, 123, 37, 0.9);
-        }
-
-        .btn-checkout:active {
-            color: white!important;
-            background-color: rgba(244, 123, 37, 0.9)!important;
-        }
-
-        .btn-apply {
-            background-color: #e5e7eb;
-            color: #111827;
-            border: none;
-            border-radius: 0.5rem;
-            height: 48px;
-            padding: 0 1rem;
-            font-weight: 700;
-        }
-
-        .btn-apply:hover {
-            background-color: #e5e7eb;
-        }
-
-        .btn-apply:active {
-            color: #111827!important;
-            background-color: #e5e7eb!important;
-        }
-
-    </style>
-    <style>
-        .whatsapp-float{
-            position:fixed;
-            right:16px;
-            bottom:16px;
-            z-index:9999;
-            width:56px;
-            height:56px;
-            border-radius:50%;
-            background:#00DB40;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            color:white;
-            box-shadow:0 6px 16px rgba(0,0,0,.25);
-            transition:transform .2s ease
-        }
-
-        .whatsapp-float:hover{
-            transform:scale(1.06)
-        }
-
-        .whatsapp-float svg{
-            width:28px;
-            height:28px;
-            fill:currentColor
-        }
-
-        @media (max-width: 576px){
-            .whatsapp-float{
-                right:12px;
-                bottom:12px;
-                width:52px;
-                height:52px}}
-        @media (min-width: 1200px){
-            .whatsapp-float{ right: calc((100vw - 1140px)/2 + 16px); }
-        }
-        @media (min-width: 1400px){
-            .whatsapp-float{ right: calc((100vw - 1320px)/2 + 16px); }
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
 
 <body>
     <div class="d-flex flex-column min-vh-100">
@@ -311,7 +29,7 @@
                                     <path clip-rule="evenodd"d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"fill-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <h2 class="h5 mb-0 fw-bold">Drink Catalog</h2>
+                            <h2 class="h5 mb-0 fw-bold">Catálogo de Productos</h2>
                         </div>
                     </div>
                     <div class="d-flex align-items-center gap-3">
@@ -326,7 +44,7 @@
                             <span>Carrito</span>
                             <div class="cart-badge">2</div>
                         </button>
-                        <div class="user-avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfgSw35zaVBkfzlylHosjMNscdlajwFAPOjYdcBA1iwqZa4XZ1HpAesuwPTcMJGpldelYFtc0PHXMbJL4DlCa_5TXbOQd0jLGuJpVXM2zcdXWuombpknP8XEBENHYEnNnhVImBeQIt6m1y-ZWIs8sSujZfmxRkrL4fp-mRQ5uj7qzgub12djtO1JaJgLrGCeRsvYu2YXLg7Gvt-m4Fmm0bhSyJJW5hGh1SGeRydlaw8JD4vSW8QVDZ9Mg5e196NTAWcf-_vQJKPRRs");'></div>
+                        <div class="user-avatar" style='background-image: url("img/user.png");'></div>
                     </div>
                 </header>
 
@@ -335,7 +53,10 @@
                     <!-- btn seguir comprando -->
                     <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
                         <h1 class="display-5 fw-black mb-0">Tu Carrito de Compras</h1>
-                        <button class="btn btn-continue">Seguir Comprando</button>
+                        <button class="btn btn-continue" >
+                            <a class="text-decoration-none" style="color:#f47b25" href="product-catalog.html">
+                            Seguir Comprando</a>
+                        </button>
                     </div>
 
                     <!-- Cart Grid -->
@@ -349,7 +70,7 @@
                                         <div class="producto-imagen" style='background-image: url("img/fav/fav-1.png");'></div>
                                         <div>
                                             <p class="producto-titulo">Cerveza Artesanal IPA - 355ml</p>
-                                            <p class="producto-precio">$5.00</p>
+                                            <p class="producto-precio">S/. 5.00</p>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center gap-3 ms-auto">
@@ -358,7 +79,7 @@
                                             <input type="number" class="cantidad-input" value="1">
                                             <button class="cantidad-btn">+</button>
                                         </div>
-                                        <p class="producto-titulo mb-0 text-end" style="min-width: 80px;">$5.00</p>
+                                        <p class="producto-titulo mb-0 text-end" style="min-width: 80px;">S/. 5.00</p>
                                         <button class="btn-delete">
                                             <span class="material-symbols-outlined">delete</span>
                                         </button>
@@ -371,7 +92,7 @@
                                         <div class="producto-imagen" style='background-image: url("img/fav/fav-1.png");'></div>
                                         <div>
                                             <p class="producto-titulo">Refresco de Cola - 500ml</p>
-                                            <p class="producto-precio">$2.50</p>
+                                            <p class="producto-precio">S/. 2.50</p>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center gap-3 ms-auto">
@@ -380,7 +101,7 @@
                                             <input type="number" class="cantidad-input" value="2">
                                             <button class="cantidad-btn">+</button>
                                         </div>
-                                        <p class="producto-titulo mb-0 text-end" style="min-width: 80px;">$5.00</p>
+                                        <p class="producto-titulo mb-0 text-end" style="min-width: 80px;">S/. 5.00</p>
                                         <button class="btn-delete">
                                             <span class="material-symbols-outlined">delete</span>
                                         </button>
@@ -396,22 +117,22 @@
                                 
                                 <div class="d-flex justify-content-between py-2 resumen-divider">
                                     <p class="resumen-label mb-0">Subtotal</p>
-                                    <p class="resumen-value mb-0">$10.00</p>
+                                    <p class="resumen-value mb-0">S/. 10.00</p>
                                 </div>
                                 
                                 <div class="d-flex justify-content-between py-2 resumen-divider">
                                     <p class="resumen-label mb-0">Impuestos</p>
-                                    <p class="resumen-value mb-0">$1.50</p>
+                                    <p class="resumen-value mb-0">S/. 1.50</p>
                                 </div>
                                 
                                 <div class="d-flex justify-content-between py-2 resumen-divider">
                                     <p class="resumen-label mb-0">Costo de envío</p>
-                                    <p class="resumen-value mb-0">$3.00</p>
+                                    <p class="resumen-value mb-0">S/. 3.00</p>
                                 </div>
                                 
                                 <div class="d-flex justify-content-between py-3">
                                     <p class="total-label mb-0">Total</p>
-                                    <p class="total-label mb-0">$14.50</p>
+                                    <p class="total-label mb-0">S/. 14.50</p>
                                 </div>
 
                                 <div class="d-flex gap-2 mb-3">
@@ -420,7 +141,7 @@
                                 </div>
 
                                 <button class="btn btn-checkout w-100">
-                                    Ir al Checkout
+                                    <a class="text-decoration-none text-light" href="checkout-payment.html">Ir al Checkout</a>
                                 </button>
                             </div>
                         </div>
@@ -434,8 +155,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <a href="https://wa.me/51987654321" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.255 3.713a8 8 0 0 0-5.684-2.36c-4.433 0-8.043 3.603-8.043 8.036 0 1.394.364 2.771 1.045 3.974l-1.164 4.26 4.354-1.14a8.06 8.06 0 0 0 3.8.957c4.434 0 8.044-3.61 8.044-8.043 0-2.145-.84-4.172-2.352-5.692zM4.283 13.11c-.76-.863-1.18-2.312-1.18-3.72a6.467 6.467 0 0 1 6.46-6.46 6.42 6.42 0 0 1 4.568 1.891 6.42 6.42 0 0 1 1.892 4.568 6.467 6.467 0 0 1-6.46 6.46c-1.258 0-2.596-.404-3.562-1.06l-2.343.609z" fill="#fff" style="fill:#fff;fill-opacity:1"></path><path d="M11.748 10.434c.182.064 1.148.539 1.346.641.198.103.333.15.38.23.048.08.048.475-.119.934s-.95.879-1.33.934c-.34.048-.768.072-1.242-.079a12 12 0 0 1-1.125-.412c-1.979-.854-3.27-2.842-3.364-2.976-.103-.143-.8-1.069-.8-2.035s.507-1.448.689-1.646a.72.72 0 0 1 .522-.246h.38c.12 0 .285-.047.444.34.166.396.562 1.362.61 1.465a.38.38 0 0 1 .015.349c-.063.134-.095.213-.198.324a8 8 0 0 1-.293.348c-.095.095-.198.206-.087.404.119.198.507.84 1.093 1.362.752.673 1.385.879 1.583.974s.309.079.428-.048c.118-.135.49-.578.625-.776s.261-.166.443-.095z" fill="#fff" style="fill:#fff;fill-opacity:1"></path></svg>
+        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.255 3.713a8 8 0 0 0-5.684-2.36c-4.433 0-8.043 3.603-8.043 8.036 0 1.394.364 2.771 1.045 3.974l-1.164 4.26 4.354-1.14a8.06 8.06 0 0 0 3.8.957c4.434 0 8.044-3.61 8.044-8.043 0-2.145-.84-4.172-2.352-5.692zM4.283 13.11c-.76-.863-1.18-2.312-1.18-3.72a6.467 6.467 0 0 1 6.46-6.46 6.42 6.42 0 0 1 4.568 1.891 6.42 6.42 0 0 1 1.892 4.568 6.467 6.467 0 0 1-6.46 6.46c-1.258 0-2.596-.404-3.562-1.06l-2.343.609z" fill="#fff"></path><path d="M11.748 10.434c.182.064 1.148.539 1.346.641.198.103.333.15.38.23.048.08.048.475-.119.934s-.95.879-1.33.934c-.34.048-.768.072-1.242-.079a12 12 0 0 1-1.125-.412c-1.979-.854-3.27-2.842-3.364-2.976-.103-.143-.8-1.069-.8-2.035s.507-1.448.689-1.646a.72.72 0 0 1 .522-.246h.38c.12 0 .285-.047.444.34.166.396.562 1.362.61 1.465a.38.38 0 0 1 .015.349c-.063.134-.095.213-.198.324a8 8 0 0 1-.293.348c-.095.095-.198.206-.087.404.119.198.507.84 1.093 1.362.752.673 1.385.879 1.583.974s.309.079.428-.048c.118-.135.49-.578.625-.776s.261-.166.443-.095z" fill="#fff"></path></svg>
     </a>
 </body>
 
