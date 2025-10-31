@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Detalle de Producto</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --background-light: #F8F9FA;
+            --background-dark: #1a1a1a;
+            --text-light: #212529;
+            --text-dark: #F8F9FA;
+            --accent: #E2F0D9;
+            --accent-dark: #2A3A24;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            min-height: 100vh;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Header */
+        .header-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(248, 249, 250, 0.8);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+        }
+
+        .header-border {
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        /* Buttons */
+        .btn-login {
+            background-color: transparent;
+            color: var(--text-light);
+            border: none;
+            border-radius: 0.75rem;
+            height: 40px;
+            padding: 0 1rem;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #f3f4f6;
+        }
+
+        .btn-signup {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            height: 40px;
+            padding: 0 1rem;
+            font-weight: 700;
+            transition: opacity 0.3s;
+        }
+
+        .btn-signup:hover {
+            color: white;
+            background-color: rgb(210, 115, 56);
+        }
+
+        .btn-signup:active {
+            color: white!important;
+            background-color: rgb(210, 115, 56)!important;
+        }
+
+        .btn-cart-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+            color: var(--text-light);
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-cart-icon:hover {
+            background-color: #e5e7eb;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-link {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb-link:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumb-current {
+            color: var(--text-light);
+        }
+
+        /* Producto Imágenes */
+        .product-main-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 0.75rem;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-thumbnail {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 0.5rem;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .product-thumbnail.active {
+            border: 2px solid var(--primary);
+            opacity: 1;
+        }
+
+        .product-thumbnail:not(.active) {
+            opacity: 0.7;
+        }
+
+        .product-thumbnail:hover {
+            opacity: 1;
+        }
+
+        /* Product Info */
+        .product-title {
+            font-size: 2.25rem;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .product-description {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .product-price-old {
+            font-size: 0.875rem;
+            color: #6b7280;
+            text-decoration: line-through;
+        }
+
+        /* Quantity Controls */
+        .quantity-control {
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            display: inline-flex;
+        }
+
+        .quantity-btn {
+            padding: 0.5rem 1rem;
+            font-size: 1.125rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background-color: #f3f4f6;
+        }
+
+        .quantity-btn:first-child {
+            border-radius: 0.5rem 0 0 0.5rem;
+        }
+
+        .quantity-btn:last-child {
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+
+        .quantity-value {
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+        }
+
+        /* Add to Cart Button */
+        .btn-add-cart {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            height: 56px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-cart:hover {
+            color: white;
+            background-color: rgb(210, 115, 56);
+        }
+
+        .btn-add-cart:active {
+            color: white!important;
+            background-color: rgb(210, 115, 56)!important;
+        }
+
+        /* Social Icons */
+        .social-icon {
+            color: #6b7280;
+            transition: color 0.3s;
+        }
+
+        .social-icon:hover {
+            color: var(--primary);
+        }
+
+        /* Tabs */
+        .nav-tabs {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: #6b7280;
+            font-weight: 500;
+            font-size: 0.875rem;
+            padding: 1rem 0.25rem;
+            margin-right: 2rem;
+        }
+
+        .nav-tabs .nav-link:hover {
+            border-bottom-color: #d1d5db;
+            color: #374151;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content-text {
+            color: #4b5563;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Related Products */
+        .product-card {
+            transition: transform 0.3s;
+        }
+
+        .product-card-image-wrapper {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+
+        .product-card-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.75rem;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .product-card-image {
+            transform: scale(1.1);
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: var(--text-light);
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .favorite-btn:hover {
+            background-color: white;
+        }
+
+        .product-card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .product-card-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-sticky">
+        <div class="container-fluid px-3 px-md-4 px-lg-5 px-xl-5">
+            <div class="d-flex justify-content-between align-items-center header-border py-3">
+                <div class="d-flex align-items-center gap-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="logo-icon">
+                            <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h2 class="h5 mb-0 fw-bold">Catálogo de Bebidas</h2>
+                    </div>
+                    <nav class="d-none d-md-flex align-items-center gap-4">
+                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link active" href="product-catalog.html">Productos</a>
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </nav>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="d-none d-lg-flex align-items-center gap-2">
+                        <button class="btn btn-login">Iniciar Sesión</button>
+                        <button class="btn btn-signup">Regístrate</button>
+                    </div>
+                    <button class="btn-cart-icon d-flex align-items-center justify-content-center">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                    </button>
+                    <div class="user-avatar" style='background-image: url("img/user.png");'></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container-fluid px-3 px-md-4 px-lg-5 px-xl-5 py-5">
+        <div class="mx-auto" style="max-width: 1152px;">
+            <!-- Breadcrumb -->
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-4">
+                <a class="breadcrumb-link" href="#">Home</a>
+                <span class="breadcrumb-link">/</span>
+                <a class="breadcrumb-link" href="#">Gaseosas</a>
+                <span class="breadcrumb-link">/</span>
+                <span class="breadcrumb-current small fw-medium">Cola Clásica</span>
+            </div>
+
+            <!-- Product Details -->
+            <div class="row g-4 g-lg-5">
+                <!-- Product Images -->
+                <div class="col-md-6">
+                    <div class="d-flex flex-column gap-3">
+                        <div class="product-main-image" style='background-image: url("img/card/bebida-1.png");'></div>
+                        <div class="row g-3">
+                            <div class="col-3">
+                                <div class="product-thumbnail active" style='background-image: url("img/card/bebida-1.png");'></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="product-thumbnail" style='background-image: url("img/card/bebida-1.png");'></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="product-thumbnail" style='background-image: url("img/card/bebida-1.png");'></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="product-thumbnail" style='background-image: url("img/card/bebida-1.png");'></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-md-6">
+                    <div class="d-flex flex-column gap-4">
+                        <div class="d-flex flex-column gap-3">
+                            <h1 class="product-title">Cola Clásica</h1>
+                            <p class="product-description">El sabor refrescante y atemporal que conoces y amas. Perfecta para cualquier ocasión, ya sea una fiesta, una comida o simplemente para relajarte.</p>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <h2 class="product-price mb-0">S/. 2.99</h2>
+                            <span class="product-price-old">S/. 3.50</span>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="quantity-control">
+                                <button class="quantity-btn">-</button>
+                                <span class="quantity-value">1</span>
+                                <button class="quantity-btn">+</button>
+                            </div>
+                            <button class="btn btn-add-cart flex-fill">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="small text-muted">Compartir:</span>
+                            <a class="social-icon" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                                </svg>
+                            </a>
+                            <a class="social-icon" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+                                </svg>
+                            </a>
+                            <a class="social-icon" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- Tabs -->
+                        <div class="mt-3">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#ingredients">Ingredientes</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nutrition">Info. Nutricional</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#suggestions">Sugerencias</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content py-4">
+                                <div class="tab-pane fade show active" id="ingredients">
+                                    <p class="tab-content-text">Agua carbonatada, jarabe de maíz de alta fructosa, colorante de caramelo, ácido fosfórico, sabores naturales, cafeína. Cada sorbo es una explosión de sabor que ha sido amada por generaciones.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="mt-5 pt-5">
+                <h2 class="h3 fw-bold text-center mb-5">También te podría gustar</h2>
+                <div class="row g-4">
+                    <!-- Product 1 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="product-card">
+                            <div class="product-card-image-wrapper">
+                                <div class="product-card-image" style='background-image: url("img/card/bebida-2.png");'></div>
+                                <button class="favorite-btn d-flex align-items-center justify-content-center">
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">favorite_border</span>
+                                </button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h3 class="product-card-title h6">Limonada Fresca</h3>
+                                <p class="product-card-price mb-0">S/. 2.49</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="product-card">
+                            <div class="product-card-image-wrapper">
+                                <div class="product-card-image" style='background-image: url("img/card/bebida-2.png");'></div>
+                                <button class="favorite-btn d-flex align-items-center justify-content-center">
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">favorite_border</span>
+                                </button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h3 class="product-card-title h6">Naranja Cítrica</h3>
+                                <p class="product-card-price mb-0">S/. 2.49</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="product-card">
+                            <div class="product-card-image-wrapper">
+                                <div class="product-card-image" style='background-image: url("img/card/bebida-2.png");'></div>
+                                <button class="favorite-btn d-flex align-items-center justify-content-center">
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">favorite_border</span>
+                                </button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h3 class="product-card-title h6">Cerveza Lager</h3>
+                                <p class="product-card-price mb-0">S/. 4.99</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="product-card">
+                            <div class="product-card-image-wrapper">
+                                <div class="product-card-image" style='background-image: url("img/card/bebida-2.png");'></div>
+                                <button class="favorite-btn d-flex align-items-center justify-content-center">
+                                    <span class="material-symbols-outlined" style="font-size: 18px;">favorite</span>
+                                </button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h3 class="product-card-title h6">Agua con Gas</h3>
+                                <p class="product-card-price mb-0">S/. 1.99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

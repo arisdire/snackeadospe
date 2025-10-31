@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Finalizar Compra</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --primary: #50E3C2;
+            --background-light: #f8f9fa;
+            --background-dark: #221710;
+            --text-dark: #333333;
+            --text-light: #F8F9FA;
+            --accent-green: #2ECC71;
+            --accent-yellow: #FFD700;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .icono-logo {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+        }
+
+        .header-link:hover {
+            color: var(--primary) !important;
+        }
+
+        .progress {
+            height: 8px;
+            border-radius: 50px;
+        }
+
+        .barra-progreso {
+            background-color: var(--primary);
+        }
+
+        .card {
+            border-radius: 1rem;
+            border: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control, .form-select {
+            border-radius: 0.5rem;
+            height: 48px;
+            border-color: #dee2e6;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(80, 227, 194, 0.25);
+        }
+
+        .shipping-option {
+            border: 2px solid #dee2e6;
+            border-radius: 1rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .shipping-option:hover {
+            border-color: var(--primary);
+        }
+
+        .shipping-option.active {
+            border-color: var(--primary);
+        }
+
+        .payment-option {
+            border: 2px solid #dee2e6;
+            border-radius: 1rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .payment-option:hover {
+            border-color: var(--primary);
+        }
+
+        .payment-option.active {
+            border-color: var(--primary);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--text-dark);
+            font-weight: 700;
+            border-radius: 0.75rem;
+            height: 56px;
+        }
+
+        .product-image {
+            width: 64px;
+            height: 64px;
+            border-radius: 0.5rem;
+            object-fit: cover;
+        }
+
+        .secure-badge {
+            color: var(--accent-green);
+        }
+
+        .sticky-summary {
+            position: sticky;
+            top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="border-bottom py-3">
+        <div class="container-fluid px-4 px-lg-5">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="icono-logo">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z" fill="currentColor"></path>
+                            <path clip-rule="evenodd" d="M39.998 12.236C39.9944 12.2537 39.9875 12.2845 39.9748 12.3294C39.9436 12.4399 39.8949 12.5741 39.8346 12.7175C39.8168 12.7597 39.7989 12.8007 39.7813 12.8398C38.5103 13.7113 35.9788 14.9393 33.7095 15.4811C30.9875 16.131 27.6413 16.5217 24 16.5217C20.3587 16.5217 17.0125 16.131 14.2905 15.4811C12.0012 14.9346 9.44505 13.6897 8.18538 12.8168C8.17384 12.7925 8.16216 12.767 8.15052 12.7408C8.09919 12.6249 8.05721 12.5114 8.02977 12.411C8.00356 12.3152 8.00039 12.2667 8.00004 12.2612C8.00004 12.261 8 12.2607 8.00004 12.2612C8.00004 12.2359 8.0104 11.9233 8.68485 11.3686C9.34546 10.8254 10.4222 10.2469 11.9291 9.72276C14.9242 8.68098 19.1919 8 24 8C28.8081 8 33.0758 8.68098 36.0709 9.72276C37.5778 10.2469 38.6545 10.8254 39.3151 11.3686C39.9006 11.8501 39.9857 12.1489 39.998 12.236ZM4.95178 15.2312L21.4543 41.6973C22.6288 43.5809 25.3712 43.5809 26.5457 41.6973L43.0534 15.223C43.0709 15.1948 43.0878 15.1662 43.104 15.1371L41.3563 14.1648C43.104 15.1371 43.1038 15.1374 43.104 15.1371L43.1051 15.135L43.1065 15.1325L43.1101 15.1261L43.1199 15.1082C43.1276 15.094 43.1377 15.0754 43.1497 15.0527C43.1738 15.0075 43.2062 14.9455 43.244 14.8701C43.319 14.7208 43.4196 14.511 43.5217 14.2683C43.6901 13.8679 44 13.0689 44 12.2609C44 10.5573 43.003 9.22254 41.8558 8.2791C40.6947 7.32427 39.1354 6.55361 37.385 5.94477C33.8654 4.72057 29.133 4 24 4C18.867 4 14.1346 4.72057 10.615 5.94478C8.86463 6.55361 7.30529 7.32428 6.14419 8.27911C4.99695 9.22255 3.99999 10.5573 3.99999 12.2609C3.99999 13.1275 4.29264 13.9078 4.49321 14.3607C4.60375 14.6102 4.71348 14.8196 4.79687 14.9689C4.83898 15.0444 4.87547 15.1065 4.9035 15.1529C4.91754 15.1762 4.92954 15.1957 4.93916 15.2111L4.94662 15.223L4.95178 15.2312ZM35.9868 18.996L24 38.22L12.0131 18.996C12.4661 19.1391 12.9179 19.2658 13.3617 19.3718C16.4281 20.1039 20.0901 20.5217 24 20.5217C27.9099 20.5217 31.5719 20.1039 34.6383 19.3718C35.082 19.2658 35.5339 19.1391 35.9868 18.996Z" fill="currentColor" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h2 class="h5 mb-0 fw-bold">Drinkify</h2>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <a class="header-link text-decoration-none fw-medium" href="#">Política de Devoluciones</a>
+                    <a class="header-link text-decoration-none fw-medium" href="#">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="py-4 py-lg-5">
+        <div class="container-fluid px-4 px-lg-5">
+            <!-- Titulo pagina -->
+            <div class="mb-4">
+                <div class="p-3">
+                    <h1 class="display-5 fw-black mb-0">Finalizar Compra</h1>
+                </div>
+                
+                <!-- Paso de progreso -->
+                <div class="px-3">
+                    <div class="d-flex justify-content-between text-center mb-3">
+                        <div class="flex-fill">
+                            <small class="fw-medium">Dirección</small>
+                        </div>
+                        <div class="flex-fill">
+                            <small class="fw-medium">Envío</small>
+                        </div>
+                        <div class="flex-fill">
+                            <small class="fw-medium" style="color: var(--primary);">Pago</small>
+                        </div>
+                        <div class="flex-fill">
+                            <small class="fw-medium text-muted">Confirmación</small>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="barra-progreso" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="row g-4">
+                <!-- Columna izquierda -->
+                <div class="col-lg-8">
+                    <!-- Información de envío -->
+                    <div class="card mb-4">
+                        <div class="card-body p-4">
+                            <h2 class="h4 fw-bold mb-4">Información de Envío</h2>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-medium">Nombre</label>
+                                    <input type="text" class="form-control" placeholder="Juan">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-medium">Apellidos</label>
+                                    <input type="text" class="form-control" placeholder="Pérez">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-medium">Dirección</label>
+                                    <input type="text" class="form-control" placeholder="Calle Falsa 123, Apto 4B">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-medium">Ciudad</label>
+                                    <input type="text" class="form-control" placeholder="Madrid">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-medium">Código Postal</label>
+                                    <input type="text" class="form-control" placeholder="28001">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-medium">País</label>
+                                    <input type="text" class="form-control" placeholder="España">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Método de envío -->
+                    <div class="card mb-4">
+                        <div class="card-body p-4">
+                            <h2 class="h4 fw-bold mb-4">Elige tu envío</h2>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="shipping-option active">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <p class="fw-bold mb-0">Envío Estándar</p>
+                                            <p class="fw-bold mb-0">5,00€</p>
+                                        </div>
+                                        <p class="small text-muted mb-0">3-5 días hábiles</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="shipping-option">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <p class="fw-bold mb-0">Envío Express</p>
+                                            <p class="fw-bold mb-0">10,00€</p>
+                                        </div>
+                                        <p class="small text-muted mb-0">24 horas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pago -->
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <h2 class="h4 fw-bold mb-4">Pago</h2>
+                            
+                            <!-- Etiqueta de seguridad -->
+                            <div class="d-flex align-items-center gap-2 mb-4">
+                                <span class="material-symbols-outlined secure-badge">lock</span>
+                                <p class="small fw-medium secure-badge mb-0">Pago Seguro</p>
+                            </div>
+
+                            <!-- Métodos de pago -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <div class="payment-option active d-flex align-items-center gap-3">
+                                        <span class="material-symbols-outlined fs-4">credit_card</span>
+                                        <p class="fw-bold mb-0">Tarjeta de Crédito</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="payment-option d-flex align-items-center justify-content-center gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-paypal" viewBox="0 0 16 16">
+                                            <path d="M14.06 3.713c.12-1.071-.093-1.832-.702-2.526C12.628.356 11.312 0 9.626 0H4.734a.7.7 0 0 0-.691.59L2.005 13.509a.42.42 0 0 0 .415.486h2.756l-.202 1.28a.628.628 0 0 0 .62.726H8.14c.429 0 .793-.31.862-.731l.025-.13.48-3.043.03-.164.001-.007a.35.35 0 0 1 .348-.297h.38c1.266 0 2.425-.256 3.345-.91q.57-.403.993-1.005a4.94 4.94 0 0 0 .88-2.195c.242-1.246.13-2.356-.57-3.154a2.7 2.7 0 0 0-.76-.59l-.094-.061ZM6.543 8.82a.7.7 0 0 1 .321-.079H8.3c2.82 0 5.027-1.144 5.672-4.456l.003-.016q.326.186.548.438c.546.623.679 1.535.45 2.71-.272 1.397-.866 2.307-1.663 2.874-.802.57-1.842.815-3.043.815h-.38a.87.87 0 0 0-.863.734l-.03.164-.48 3.043-.024.13-.001.004a.35.35 0 0 1-.348.296H5.595a.106.106 0 0 1-.105-.123l.208-1.32z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Detalle -->
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-medium">Número de tarjeta</label>
+                                    <input type="text" class="form-control" placeholder="**** **** **** 1234">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-medium">Fecha de Caducidad</label>
+                                    <input type="text" class="form-control" placeholder="MM/AA">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-medium">CVV</label>
+                                    <input type="text" class="form-control" placeholder="123">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna derecha - Resumen del pedido -->
+                <div class="col-lg-4">
+                    <div class="card sticky-summary">
+                        <div class="card-body p-4">
+                            <h2 class="h4 fw-bold mb-4 pb-3 border-bottom">Tu Pedido</h2>
+                            
+                            <!-- Orden -->
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <img class="product-image" src="img/card/bebida-1.png" alt="Bottle of gin">
+                                    <div class="flex-fill">
+                                        <p class="fw-bold mb-0">Ginebra Premium</p>
+                                        <p class="small text-muted mb-0">1 x 25,00€</p>
+                                    </div>
+                                    <p class="fw-bold mb-0">25,00€</p>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <img class="product-image" src="img/card/bebida-2.png" alt="Cans of soda">
+                                    <div class="flex-fill">
+                                        <p class="fw-bold mb-0">Tónica Clásica</p>
+                                        <p class="small text-muted mb-0">4 x 1,50€</p>
+                                    </div>
+                                    <p class="fw-bold mb-0">6,00€</p>
+                                </div>
+                            </div>
+
+                            <!-- Total orden -->
+                            <div class="border-top pt-3">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <p class="mb-0">Subtotal</p>
+                                    <p class="mb-0">31,00€</p>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <p class="mb-0">Envío</p>
+                                    <p class="mb-0">5,00€</p>
+                                </div>
+                                <div class="d-flex justify-content-between fw-bold fs-5 border-top pt-3 mt-3">
+                                    <p class="mb-0">Total</p>
+                                    <p class="mb-0">36,00€</p>
+                                </div>
+                            </div>
+
+                            <!-- btn pago -->
+                            <button class="btn btn-primary w-100 mt-4">
+                                Pagar ahora 36,00€
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

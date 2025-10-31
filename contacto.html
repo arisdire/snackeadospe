@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contacto - SNACKEADOS</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --primary: #dc3545;
+            --secondary: #ffc107;
+            --text-dark: #212529;
+            --bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        .header-border {
+            border-bottom: 1px solid #e9ecef;
+            background-color: #ffffffcc;
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+        }
+
+        .form-control, .form-select, textarea.form-control {
+            border-radius: 0.5rem;
+            border-color: #dee2e6;
+        }
+
+        .form-control:focus, .form-select:focus, textarea.form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.15);
+        }
+
+        .badge-soft {
+            background-color: #fff;
+            color: var(--text-dark);
+            border: 1px solid #e9ecef;
+            border-radius: 999px;
+            padding: 6px 10px;
+        }
+
+        .footer {
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-border">
+        <div class="container px-3 px-md-4 px-lg-5 py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                    <a class="text-decoration-none d-flex align-items-center gap-2" href="index.html">
+                        <img src="img/logo-principal.png" alt="Logo SNACKEADOS" style="width: 40px; height: 40px;" class="rounded">
+                        <strong class="h5 mb-0">SNACKEADOS</strong>
+                    </a>
+                    <nav class="d-none d-md-flex align-items-center gap-3">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link" href="product-catalog.html">Catálogo</a>
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        <a class="nav-link active" href="contacto.html">Contacto</a>
+                    </nav>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-danger btn-sm" href="shopping-cart.html">Carrito</a>
+                    <a class="btn btn-danger btn-sm" href="login.html">Ingresar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="container px-3 px-md-4 px-lg-5 py-4 py-lg-5">
+        <div class="row g-4">
+            <!-- Datos de contacto -->
+            <div class="col-lg-5">
+                <div class="card p-4 h-100">
+                    <h1 class="h4 fw-bold mb-3">Ponte en contacto</h1>
+                    <p class="text-muted mb-4">¿Tienes dudas sobre un pedido, productos o devoluciones? Escríbenos y te respondemos a la brevedad.</p>
+                    
+                    <div class="d-flex align-items-start gap-3 mb-3">
+                        <span class="badge-soft">Email</span>
+                        <div>
+                            <p class="mb-0 fw-medium">soporte@snackeados.com</p>
+                            <small class="text-muted">24/7</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start gap-3 mb-3">
+                        <span class="badge-soft">Teléfono</span>
+                        <div>
+                            <p class="mb-0 fw-medium">+51 999 999 999</p>
+                            <small class="text-muted">Lun - Dom, 9:00 a 20:00</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start gap-3">
+                        <span class="badge-soft">Dirección</span>
+                        <div>
+                            <p class="mb-0 fw-medium">Av. Principal 123, Lima</p>
+                            <small class="text-muted">Recojo en tienda disponible</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario -->
+            <div class="col-lg-7">
+                <div class="card p-4">
+                    <h2 class="h5 fw-bold mb-3">Escríbenos</h2>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">Nombre</label>
+                                <input type="text" class="form-control" placeholder="Tu nombre">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">Email</label>
+                                <input type="email" class="form-control" placeholder="tu@email.com">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-medium">Asunto</label>
+                                <input type="text" class="form-control" placeholder="¿Cómo podemos ayudarte?">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-medium">Mensaje</label>
+                                <textarea class="form-control" rows="5" placeholder="Escribe tu mensaje"></textarea>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end gap-2 mt-4">
+                            <button type="reset" class="btn btn-outline-danger">Limpiar</button>
+                            <button type="submit" class="btn btn-danger">Enviar mensaje</button>
+                        </div>
+                        <p class="small text-muted mb-0 mt-3">Al enviar aceptas nuestros Términos y la Política de Privacidad.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mapa (estático) -->
+        <section class="mt-4">
+            <div class="card p-0 overflow-hidden">
+                <div style="height: 320px; background: #e9ecef url('img/snackeados.jpg') center/cover no-repeat;"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-4">
+        <small>© 2025 SNACKEADOS. Todos los derechos reservados.</small>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

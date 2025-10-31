@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CatÃ¡logo de Bebidas</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --primary: #f47b25;
+            --background-light: #f8f7f5;
+            --background-dark: #221710;
+            --text-dark: #181411;
+            --text-light: #ffffff;
+            --border-light: #f5f2f0;
+            --border-dark: #3a2d23;
+            --secondary-light: #8a7260;
+            --secondary-dark: #a18a79;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Header */
+        .header-border {
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .icon-button {
+            background-color: var(--border-light);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 0.75rem;
+            height: 40px;
+            padding: 0 12px;
+            transition: all 0.3s;
+        }
+
+        .icon-button:hover {
+            opacity: 0.8;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            border-right: 1px solid var(--border-light);
+            min-height: calc(100vh - 73px);
+        }
+
+        .form-check-input {
+            border-radius: 0.25rem;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .form-check-input:focus {
+            box-shadow: 0 0 0 0.25rem rgba(244, 123, 37, 0.25);
+        }
+
+        .form-range {
+            height: 0.5rem;
+        }
+
+        .form-range::-webkit-slider-thumb {
+            background-color: var(--primary);
+        }
+
+        .form-range::-moz-range-thumb {
+            background-color: var(--primary);
+        }
+
+        /* Buscador */
+        .search-wrapper {
+            background-color: var(--border-light);
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+
+        .search-input {
+            background-color: transparent;
+            border: none;
+            color: var(--text-dark);
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .search-input::placeholder {
+            color: var(--secondary-light);
+        }
+
+        .search-icon {
+            color: var(--secondary-light);
+        }
+
+        .product-image-wrapper {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .product-price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .btn-add-cart {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            width: 100%;
+        }
+
+        .btn-load-more {
+            background-color: rgba(244, 123, 37, 0.2);
+            color: var(--primary);
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .btn-load-more:hover {
+            background-color: rgba(244, 123, 37, 0.3);
+        }
+
+        /* Grid responsive */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-border">
+        <div class="container-fluid px-3 px-sm-4 px-lg-5 py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-4">
+                    <div class="d-flex align-items-center gap-2" style="color: var(--primary);">
+                        <h2 class="h5 mb-0 fw-bold">Plataforma de Bebidas</h2>
+                    </div>
+                    <nav class="d-none d-md-flex align-items-center gap-4">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link active" href="product-catalog.html">Catálogo</a>
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </nav>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="shopping-cart.html">
+                        <button class="icon-button d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                            </svg>
+                        </button>
+                    </a>
+                    <a href="login.html">
+                        <button class="icon-button d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+                        </button>
+                    </a>
+                    <button class="icon-button d-md-none d-flex align-items-center justify-content-center">
+                        <span class="material-symbols-outlined fs-5">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="d-flex">
+        <!-- Filtros de la Sidebar -->
+        <aside class="sidebar d-none d-lg-block p-4" style="width: 288px;">
+            <div class="d-flex flex-column gap-4">
+                <h3 class="h5 fw-bold mb-0">Filtros</h3>
+                
+                <div class="d-flex flex-column gap-4">
+                    <!-- Categoría -->
+                    <div>
+                        <h4 class="h6 fw-medium mb-3">Categoría</h4>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="cat1" checked>
+                                <label class="form-check-label small" for="cat1">
+                                    Cerveza
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="cat2">
+                                <label class="form-check-label small" for="cat2">
+                                    Vino
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="cat3">
+                                <label class="form-check-label small" for="cat3">
+                                    Licores
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="cat4">
+                                <label class="form-check-label small" for="cat4">
+                                    Gaseosas
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Precio -->
+                    <div>
+                        <h4 class="h6 fw-medium mb-3">Precio</h4>
+                        <div class="pt-1">
+                            <input type="range" class="form-range" min="0" max="50" value="25">
+                            <div class="d-flex justify-content-between small text-muted mt-1">
+                                <span>S/. 0</span>
+                                <span>S/. 50+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tipo de producto -->
+                    <div>
+                        <h4 class="h6 fw-medium mb-3">Tipo de producto</h4>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="type1">
+                                <label class="form-check-label small" for="type1">
+                                    Artesanal
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="type2">
+                                <label class="form-check-label small" for="type2">
+                                    Vino Tinto
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="type3">
+                                <label class="form-check-label small" for="type3">
+                                    Ron Añejo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Seccion de productos -->
+        <div class="flex-fill p-3 p-md-4">
+            <!-- Header y Busqueda -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+                <h1 class="display-6 fw-black mb-0" style="min-width: 288px;">Explora nuestro catálogo de bebidas</h1>
+                <div class="search-wrapper d-flex align-items-stretch" style="height: 48px; width: 100%; max-width: 288px;">
+                    <div class="d-flex align-items-center justify-content-center px-3 search-icon">
+                        <span class="material-symbols-outlined">search</span>
+                    </div>
+                    <input type="text" class="form-control search-input" placeholder="Busca por marca, tipo o sabor">
+                </div>
+            </div>
+
+            <!-- Grid de productos -->
+            <div class="products-grid mb-5">
+                <!-- Producto 1 -->
+                <a href="product-details.html">
+                    <div class="product-card">
+                    <div class="product-image-wrapper mb-3">
+                        <div class="product-image" style="background-image: url('img/fav/fav-1.png');"></div>
+                    </div>
+                    <div class="mb-2">
+                        <p class="product-title mb-0">Cerveza Lager</p>
+                        <p class="product-price mb-0">S/. 5.00</p>
+                    </div>
+                    <button class="btn-add-cart d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Añadir al carrito
+                    </button>
+                </div>
+                </a>
+
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper mb-3">
+                        <div class="product-image" style="background-image: url('img/fav/fav-3.png');"></div>
+                    </div>
+                    <div class="mb-2">
+                        <p class="product-title mb-0">Vino Tinto</p>
+                        <p class="product-price mb-0">S/. 15.00</p>
+                    </div>
+                    <button class="btn-add-cart d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Añadir al carrito
+                    </button>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper mb-3">
+                        <div class="product-image" style="background-image: url('img/fav/fav-2.png');"></div>
+                    </div>
+                    <div class="mb-2">
+                        <p class="product-title mb-0">Ron Añejo</p>
+                        <p class="product-price mb-0">S/. 25.00</p>
+                    </div>
+                    <button class="btn-add-cart d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Añadir al carrito
+                    </button>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper mb-3">
+                        <div class="product-image" style="background-image: url('img/fav/fav-1.png');"></div>
+                    </div>
+                    <div class="mb-2">
+                        <p class="product-title mb-0">Gaseosa de Naranja</p>
+                        <p class="product-price mb-0">S/. 2.00</p>
+                    </div>
+                    <button class="btn-add-cart d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Añadir al carrito
+                    </button>
+                </div>
+
+                <!-- Producto 5 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper mb-3">
+                        <div class="product-image" style="background-image: url('img/fav/fav-4.png');"></div>
+                    </div>
+                    <div class="mb-2">
+                        <p class="product-title mb-0">Cerveza IPA</p>
+                        <p class="product-price mb-0">S/. 6.00</p>
+                    </div>
+                    <button class="btn-add-cart d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Añadir al carrito
+                    </button>
+                </div>
+
+                <!-- Producto 6 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper mb-3">
+                        <div class="product-image" style="background-image: url('img/fav/fav-3.png');"></div>
+                    </div>
+                    <div class="mb-2">
+                        <p class="product-title mb-0">Vino Blanco</p>
+                        <p class="product-price mb-0">S/. 14.00</p>
+                    </div>
+                    <button class="btn-add-cart d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Añadir al carrito
+                    </button>
+                </div>
+
+                <!-- Producto 7 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper mb-3">
+                        <div class="product-image" style="background-image: url('img/fav/fav-2.png');"></div>
+                    </div>
+                    <div class="mb-2">
+                        <p class="product-title mb-0">Whisky Escocés</p>
+                        <p class="product-price mb-0">S/. 30.00</p>
+                    </div>
+                    <button class="btn-add-cart d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Añadir al carrito
+                    </button>
+                </div>
+
+                <!-- Producto 8 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper mb-3">
+                        <div class="product-image" style="background-image: url('img/fav/fav-1.png');"></div>
+                    </div>
+                    <div class="mb-2">
+                        <p class="product-title mb-0">Gaseosa de Limón</p>
+                        <p class="product-price mb-0">S/. 2.00</p>
+                    </div>
+                    <button class="btn-add-cart d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Añadir al carrito
+                    </button>
+                </div>
+            </div>
+
+            <!-- Btn Cargar Más -->
+            <div class="d-flex justify-content-center mt-5">
+                <button class="btn-load-more">
+                    Cargar más
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
