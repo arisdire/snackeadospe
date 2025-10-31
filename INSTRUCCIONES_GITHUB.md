@@ -75,9 +75,38 @@ git pull
 ## Solución de Problemas:
 
 ### Si GitHub te pide autenticación:
-- Usa un **Personal Access Token** en lugar de tu contraseña
-- Ve a GitHub ? Settings ? Developer settings ? Personal access tokens ? Generate new token
-- Usa ese token como contraseña cuando Git te lo pida
+
+Para operaciones básicas de Git (push, pull, clone), necesitas crear un **Personal Access Token**:
+
+#### Pasos para crear el token:
+
+1. Ve a GitHub ? **Settings** ? **Developer settings** ? **Personal access tokens** ? **Tokens (classic)**
+2. Haz clic en **"Generate new token"** ? **"Generate new token (classic)"**
+3. Completa el formulario:
+   - **Note**: Dale un nombre descriptivo (ej: "Token para snackeados proyecto")
+   - **Expiration**: Elige la duración (30 días, 60 días, 90 días, o sin expiración)
+   - **Scopes/Permisos**: Marca las siguientes opciones:
+     - ? **`repo`** (Full control of private repositories) - **ES EL MÁS IMPORTANTE**
+       - Esto incluye permisos para: clone, push, pull, y todas las operaciones de repositorio
+
+4. Haz clic en **"Generate token"** al final de la página
+5. **¡IMPORTANTE!** Copia el token inmediatamente, ya que GitHub solo lo mostrará una vez
+
+#### Permisos mínimos necesarios:
+
+Para uso básico de Git con GitHub, necesitas como mínimo:
+- **`repo`**: Control completo de repositorios privados
+  - Permite: `push`, `pull`, `clone`, `commit`, `create`, `delete`, y más
+
+Si tu repositorio es **público**, algunos permisos adicionales opcionales:
+- **`workflow`**: Si usas GitHub Actions (opcional)
+- **`read:org`**: Si perteneces a una organización (opcional)
+
+#### Cómo usar el token:
+
+Cuando Git te pida autenticación:
+- **Username**: Tu usuario de GitHub
+- **Password**: Pega el **Personal Access Token** (NO tu contraseña de GitHub)
 
 ### Si hay conflictos al hacer pull:
 ```bash
